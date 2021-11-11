@@ -6,7 +6,4 @@ def weather_pokemon_types(weather):
         for row in reader:
             if row[1] == weather:
                 return(row[2].split(' '))
-
-
-
-print(weather_pokemon_types("Sunny"))
+                
