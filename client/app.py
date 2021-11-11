@@ -2,6 +2,7 @@ import geocoder
 import requests
 from dotenv import load_dotenv
 import os
+import json
 from flask import Flask, render_template, request, jsonify
 
 # load api key configuration
@@ -17,9 +18,11 @@ def index():
         lon = request.args.get('lon')
         # call weather api
         weather_response = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly,daily,alerts&appid={API_KEY}")
-        
         # call pokemon type api
-        weather_types_response = ["Grass", "Poison"]
+        data_cleanup = dataCleanUp(weather_response.content)
+        main = data_cleanup[0]
+        description = data_cleanup[1]
+        weather_types_response = requests.get(f"http://127.0.0.0.1:5002/weatherType?main={main}&description={description}")
         
         pokemon_type_param = ""
         for pokemon_type in weather_types_response:
@@ -35,6 +38,10 @@ def index():
 
     else:
         return render_template('index.html')
+
+def dataCleanUp(weather_response):
+    data = json.loads(weather_response)
+    return (data['current']['weather'][0]['main'],data['current']['weather'][0]['description'])
 
 
 def getLocation():
