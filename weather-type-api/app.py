@@ -6,13 +6,15 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 
-#0.0.0.0:5000/pokemon?type=a&type=b
+#0.0.0.0:5000/weatherType?weathermain=a&weatherdesc=b
 @app.route('/weatherType')
-def get_pokemon_types(LocationJson):
-    weather = dataCleanUp(LocationJson)
-    weatherType = weather_type(weather[0],weather[1])
+def get_pokemon_types():
+    weather = request.args.get('main')
+    description = request.args.get('description')
+    # weather = dataCleanUp(LocationJson)
+    weatherType = weather_type(weather,description)
     pokemonTypes = weather_pokemon_types(weatherType)
-    return(pokemonTypes)
+    return jsonify(pokemonTypes)
 
 
 if __name__ == "__main__":
