@@ -50,7 +50,7 @@ ID,Main,Description,WeatherType
 771,Squall,squalls,Fog
 781,Tornado,tornado,Fog
 800,Clear,clear sky,Clear
-801,Clouds,few clouds: 11-25,Partly Cloudy
-802,Clouds,scattered clouds: 25-50%,Partly Cloudy
-803,Clouds,broken clouds: 51-84%,Cloudy
-804,Clouds,overcast clouds: 85-100%,Cloudy
+801,Clouds,few clouds,Partly Cloudy
+802,Clouds,scattered clouds,Partly Cloudy
+803,Clouds,broken clouds,Cloudy
+804,Clouds,overcast clouds,Cloudy
