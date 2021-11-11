@@ -1,14 +1,7 @@
 import csv
-from flask import Flask
-from flask import request
-
-lat = 53.4442574
-lon = -2.2529437
-response = request.get(f"https://api.openweathermap.org/data/2.5/onecall?lat=53.4442574&lon=-2.2529437&exclude=minutely,hourly,daily,alerts&appid=")
-print(response.json())
 
 def dataCleanUp(ApiJson):
-    return(0)
+    return(ApiJson['current']['weather'][0]['main'],ApiJson['current']['weather'][0]['description'])
 
 def weather_type(main,description):
     with open('weather-weather.csv', 'r') as file:
