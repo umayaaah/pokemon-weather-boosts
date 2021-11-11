@@ -1,0 +1,56 @@
+ID,Main,Description,WeatherType
+200,Thunderstorm,thunderstorm with light rain,Rainy
+201,Thunderstorm,thunderstorm with rain,Rainy
+202,Thunderstorm,thunderstorm with heavy rain,Rainy
+210,Thunderstorm,light thunderstorm,Rainy
+211,Thunderstorm,thunderstorm,Rainy
+212,Thunderstorm,heavy thunderstorm,Rainy
+221,Thunderstorm,ragged thunderstorm,Rainy
+230,Thunderstorm,thunderstorm with light drizzle,Rainy
+231,Thunderstorm,thunderstorm with drizzle,Rainy
+232,Thunderstorm,thunderstorm with heavy drizzle,Rainy
+300,Drizzle,light intensity drizzle,Rainy
+301,Drizzle,drizzle,Rainy
+302,Drizzle,heavy intensity drizzle,Rainy
+310,Drizzle,light intensity drizzle rain,Rainy
+311,Drizzle,drizzle rain,Rainy
+312,Drizzle,heavy intensity drizzle rain,Rainy
+313,Drizzle,shower rain and drizzle,Rainy
+314,Drizzle,heavy shower rain and drizzle,Rainy
+321,Drizzle,shower drizzle,Rainy
+500,Rain,light rain,Rainy
+501,Rain,moderate rain,Rainy
+502,Rain,heavy intensity rain,Rainy
+503,Rain,very heavy rain,Rainy
+504,Rain,extreme rain,Rainy
+511,Rain,freezing rain,Rainy
+520,Rain,light intensity shower rain,Rainy
+521,Rain,shower rain,Rainy
+522,Rain,heavy intensity shower rain,Rainy
+531,Rain,ragged shower rain,Rainy
+600,Snow,light snow,Snow
+601,Snow,Snow,Snow
+602,Snow,Heavy snow,Snow
+611,Snow,Sleet,Snow
+612,Snow,Light shower sleet,Snow
+613,Snow,Shower sleet,Snow
+615,Snow,Light rain and snow,Snow
+616,Snow,Rain and snow,Snow
+620,Snow,Light shower snow,Snow
+621,Snow,Shower snow,Snow
+622,Snow,Heavy shower snow,Snow
+701,Mist,mist,Fog
+711,Smoke,Smoke,Fog
+721,Haze,Haze,Fog
+731,Dust,sand/ dust whirls,Fog
+741,Fog,fog,Fog
+751,Sand,sand,Fog
+761,Dust,dust,Fog
+762,Ash,volcanic ash,Fog
+771,Squall,squalls,Fog
+781,Tornado,tornado,Fog
+800,Clear,clear sky,Clear
+801,Clouds,few clouds: 11-25,Partly Cloudy
+802,Clouds,scattered clouds: 25-50%,Partly Cloudy
+803,Clouds,broken clouds: 51-84%,Partly Cloudy
+804,Clouds,overcast clouds: 85-100%,Partly Cloudy
