@@ -22,10 +22,11 @@ def index():
         data_cleanup = dataCleanUp(weather_response.content)
         main = data_cleanup[0]
         description = data_cleanup[1]
-        weather_types_response = requests.get(f"http://127.0.0.0.1:5002/weatherType?main={main}&description={description}")
+        weather_types_response = requests.get(f"http://127.0.0.1:5002/weatherType?main={main}&description={description}")
         
+        weather_types = json.loads(weather_types_response.content)
         pokemon_type_param = ""
-        for pokemon_type in weather_types_response:
+        for pokemon_type in weather_types:
             pokemon_type_param += f"type={pokemon_type}&"
         
         pokemon_type_param = pokemon_type_param[:-1]
