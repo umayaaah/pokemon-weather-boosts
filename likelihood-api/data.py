@@ -1,7 +1,18 @@
+'''import modules:
+pandas
+numpy
+'''
 import pandas as pd
 import numpy as np
 
 class Pokemon():
+    '''Class to represent pokemon
+    
+    Parameters: 
+    name(str): the pokemon name
+    score(int): the pokemon's score
+    likelihood(int): the likelihood of the pokemon spawning
+    legendary(bool): whether or not the pokemon is a legendary'''
     def __init__(self, name, score, likelihood, legendary):
         self.name = name
         self.score = score
@@ -9,6 +20,13 @@ class Pokemon():
         self.legendary = legendary
 
 def get_pokemon_dict():
+    '''This function takes the pokemon csv file and turns it into an array of pokemon
+    
+    Parameters:
+    pokemon.csv: the csv file containing the data about the pokemon
+    
+    Returns:
+    pokemon_dict: an array containing all pokemon and information about them'''
     df = pd.read_csv("pokemon.csv")
     df = df[["Name", "Type 1", "Type 2", "Total", "Legendary"]]
     df["Likelihood"] = np.random.randint(1, 20, df.shape[0])/100

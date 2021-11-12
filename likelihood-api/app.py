@@ -1,4 +1,7 @@
 # python3 
+'''import modules:
+    get_pokemon_dict from data.py
+    Flask,request and jsonify from flask'''
 from data import get_pokemon_dict
 from flask import Flask, request, jsonify
 
@@ -9,8 +12,13 @@ pokemon_dict = get_pokemon_dict()
 #0.0.0.0:5000/pokemon?type=a&type=b
 @app.route('/pokemon')
 def poke_dict():
+    '''This function receives the pokemon types which are weather boosted and returns the relevant details about pokemon of those types.
+    
+    Parameters:
+    type: a list of the pokemon types which are weather boosted
+    
+    Returns: A list of weather boosted pokemon and details about them.'''
     pokemon_types = request.args.getlist('type')
-    #[a, b]
     boosted_pokemon_set = set()
     for pokemon_type in pokemon_types:
         for pokemon in pokemon_dict[pokemon_type]:
