@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Weather Boosted Pokemon</title>
 </head>
+
 <body>
-    <table>
-        
-    </table>
+    <div class="container">
+
+        <!-- Page title and description -->
+        <h1>Weather Boosted Pokemons!</h1>
+        <!-- Show what the weather is in your location -->
+
+        <!-- Show the table of pokemons with weather boosts -->
+        <table class="table">
+            <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Score</th>
+                  <th scope="col">Legendary</th>
+                  <th scope="col">Likelihood</th>
+                </tr>
+              </thead>
+            <tbody>
+                {% for pokemon in pokemon_likelihoods %}
+                <tr>
+                    <td>{{pokemon.name}}</td>
+                    <td>{{pokemon.score}}</td>
+                    <td>{{pokemon.legendary}}</td>
+                    <td>{{pokemon.likelihood}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
+
 </html>
