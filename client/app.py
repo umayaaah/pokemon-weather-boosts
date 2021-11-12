@@ -31,18 +31,18 @@ def index():
 
         # get relevant data from weather api json response
         data_cleanup = dataCleanUp(weather_response.json())
-        main = data_cleanup[0]
-        description = data_cleanup[1]
+        main, description = data_cleanup[0], data_cleanup[1]
 
         # call pokemon type api
         weather_types_response = requests.get(f"http://127.0.0.1:5002/weatherType?main={main}&description={description}")
         weather_types = weather_types_response.json()
-        pokemon_type_param = ""
 
         # get pokemon types and create the parameter string for the likelihood api call
+        pokemon_type_param = ""
         for pokemon_type in weather_types:
             pokemon_type_param += f"type={pokemon_type}&"
         pokemon_type_param = pokemon_type_param[:-1]
+        #pokemon_type_param = ','.join((pokemon_type for pokemon_type in weather_types if pokemon_type is not None))
 
         # call pokemon likelihood api
         likelihood_response = requests.get(f"http://127.0.0.1:5001/pokemon?{pokemon_type_param}")
