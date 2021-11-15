@@ -44,8 +44,10 @@ def weather_boosted_pokemon():
               description: The likelihood of seeing the Pokemon in the wild
     """
 
-    if 'type' in request.args:
-        pokemon_types = request.args.getlist('type')
+    try:
+        pokemon_types = request.args.get('type')
+        pokemon_types = pokemon_types.split(",")
+        
         boosted_pokemon_set = set()
         for pokemon_type in pokemon_types:
             for pokemon in pokemon_dict[pokemon_type]:
@@ -64,12 +66,12 @@ def weather_boosted_pokemon():
             else:
                 scale_factor = 2
             
-            pokemon_values["likelihood"] = min(pokemon.likelihood * scale_factor, 1.0)
+            pokemon_values["likelihood"] = int(min(pokemon.likelihood * scale_factor, 1.0)*100)
             boosted_pokemon.append(pokemon_values)
         return jsonify(boosted_pokemon)
-    else:
+    except:
         return "An error occurred, invalid or no Pokemon types received.", 500
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port="5001", debug=True)
+    app.run(host="127.0.0.1", port="5001", debug=True)
