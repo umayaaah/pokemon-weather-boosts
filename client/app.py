@@ -27,6 +27,7 @@ def index():
         lat = request.args.get('lat')
         lon = request.args.get('lon')
 
+
         weatherStart = timeit.default_timer()
         # call weather api
         weather_response = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly,daily,alerts&appid={API_KEY}")
@@ -60,9 +61,9 @@ def index():
         likelihoodStop = timeit.default_timer()
         likelihoodTime = likelihoodStop-likelihoodStart
 
-        app.logger.info('The weather Api took'+str(weatherTime))
-        app.logger.info('The pokemon Api took'+str(pokemonTime))
-        app.logger.info('The likelihood Api took'+str(likelihoodTime))
+        app.logger.warning('The weather Api took '+str(weatherTime))
+        app.logger.warning('The pokemon Api took '+str(pokemonTime))
+        app.logger.warning('The likelihood Api took '+str(likelihoodTime))
         # render the pokemons page with the likelihood api json response
         return render_template('pokemons.html', pokemon_likelihoods=likelihood_response.json(), weather_main=main, weather_desc=description)
 
