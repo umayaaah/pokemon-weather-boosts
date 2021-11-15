@@ -45,7 +45,9 @@ def weather_boosted_pokemon():
     """
 
     if 'type' in request.args:
-        pokemon_types = request.args.getlist('type')
+        pokemon_types = request.args.get('type')
+        pokemon_types = pokemon_types.split(",")
+        
         boosted_pokemon_set = set()
         for pokemon_type in pokemon_types:
             for pokemon in pokemon_dict[pokemon_type]:

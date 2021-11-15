@@ -34,21 +34,22 @@ def index():
         main, description = data_cleanup[0], data_cleanup[1]
 
         # call pokemon type api
-        weather_types_response = requests.get(f"http://127.0.0.1:5002/weatherType?main={main}&description={description}")
-        weather_types = weather_types_response.json()
+        pokemon_types_response = requests.get(f"http://127.0.0.1:5002/weatherType?main={main}&description={description}")
+        pokemon_types = pokemon_types_response.json()
 
+        # pokemon_type_param = ""
+        # for pokemon_type in pokemon_types:
+        #     pokemon_type_param += f"type={pokemon_type}&"
+        # pokemon_type_param = pokemon_type_param[:-1]
+        
         # get pokemon types and create the parameter string for the likelihood api call
-        pokemon_type_param = ""
-        for pokemon_type in weather_types:
-            pokemon_type_param += f"type={pokemon_type}&"
-        pokemon_type_param = pokemon_type_param[:-1]
-        #pokemon_type_param = ','.join((pokemon_type for pokemon_type in weather_types if pokemon_type is not None))
-
+        pokemon_type_param = ','.join((pokemon_type for pokemon_type in pokemon_types if pokemon_type is not None))
+        
         # call pokemon likelihood api
-        likelihood_response = requests.get(f"http://127.0.0.1:5001/pokemon?{pokemon_type_param}")
+        likelihood_response = requests.get(f"http://127.0.0.1:5001/pokemon?type={pokemon_type_param}")
 
         # render the pokemons page with the likelihood api json response
-        return render_template('pokemons.html', pokemon_likelihoods=likelihood_response.json())
+        return render_template('pokemons.html', pokemon_likelihoods=likelihood_response.json(), weather_main=main, weather_desc=description)
 
     else:
         # render home page
