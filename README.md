@@ -39,3 +39,15 @@ The likelihood API takes the list of pokemon types and returns the boosted pokem
 
 Run the webpage on Google Chrome using the URL http://127.0.0.1:5000
 
+# Tests
+
+## Install requirements
+
+    pip install -r /tests/requirements.txt
+
+## Run tests
+
+    cd testing
+    python test-likelihood-api.py
+    python test-pokemon-type-api.py
+    python test-weather-api.py
