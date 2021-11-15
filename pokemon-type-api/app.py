@@ -9,8 +9,8 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 
-#0.0.0.0:5000/weatherType?weathermain=a&weatherdesc=b
-@app.route('/weatherType')
+#0.0.0.0:5000/pokemonType?weathermain=a&weatherdesc=b
+@app.route('/pokemonType')
 def get_pokemon_types():
     '''Gets the boosted pokemon types from the given weather
     
@@ -20,11 +20,14 @@ def get_pokemon_types():
     
     Returns:
     pokemonTypes: A list of the boosted pokemon types'''
-    weather = request.args.get('main')
-    description = request.args.get('description')
-    weatherType = weather_type(weather,description)
-    pokemonTypes = weather_pokemon_types(weatherType)
-    return jsonify(pokemonTypes)
+    try:
+        weather = request.args.get('main')
+        description = request.args.get('description')
+        weatherType = weather_type(weather,description)
+        pokemonTypes = weather_pokemon_types(weatherType)
+        return jsonify(pokemonTypes)
+    except:
+        return "Weather type not recognized",500
 
 
 if __name__ == "__main__":
