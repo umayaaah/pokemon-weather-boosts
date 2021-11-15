@@ -15,12 +15,12 @@
         <!-- Page title and description -->
         <h1>Weather Boosted Pokemons!</h1>
         <!-- Show what the weather is in your location -->
-        <p>The weather in your local area is: {{weather_desc}}</p>
+        <p>The weather in your local area is: <b>{{weather_desc}}</b></p>
         <div>
-            <button class="button" onclick="sortTable(0, 'True')">Sort Alphabetically</button>
-            <button class="button" onclick="sortTableNumbers(1, 'score')">Sort By Score</button>
-            <button class="button" onclick="sortTableNumbers(2, 'False')">Sort By Legendary</button>
-            <button class="button" onclick="sortTableNumbers(3, 'likelihood')">Sort By Likelihood</button>
+            <button class="btn btn-dark" onclick="sortTable(0, 'True')">Sort Alphabetically</button>
+            <button class="btn btn-dark" onclick="sortTableNumbers(1, 'score')">Sort By Score</button>
+            <button class="btn btn-dark" onclick="sortTable(2, 'False')">Sort By Legendary</button>
+            <button class="btn btn-dark" onclick="sortTableNumbers(3, 'likelihood')">Sort By Likelihood</button>
         </div>
         <!-- Show the table of pokemons with weather boosts -->
         <table class="table" id="pokemonTable">
@@ -66,9 +66,11 @@
               y = rows[i + 1].getElementsByTagName("TD")[column];
               //check if the two rows should switch place:
               if (reverse == 'True') {
+                  console.log('reverse true')
                   compare = x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()
               }
               else {
+                  console.log('reverse false')
                   compare = x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()
               }
               if (compare) {
