@@ -27,43 +27,25 @@ def index():
         lat = request.args.get('lat')
         lon = request.args.get('lon')
 
-
-        weatherStart = timeit.default_timer()
         # call weather api
         weather_response = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly,daily,alerts&appid={API_KEY}")
-        
-        # calculate weather api running time
-        weatherStop = timeit.default_timer()
-        weatherTime = weatherStop-weatherStart
 
         # get relevant data from weather api json response
         data_cleanup = dataCleanUp(weather_response.json())
         main, description = data_cleanup[0], data_cleanup[1]
 
-        pokemonStart = timeit.default_timer()
         # call pokemon type api
         pokemon_types_response = requests.get(f"http://127.0.0.1:5002/pokemonType?main={main}&description={description}")
 
-        # calculate the pokemon api running time
-        pokemonStop = timeit.default_timer()
-        pokemonTime = pokemonStop-pokemonStart
 
         pokemon_types = pokemon_types_response.json()
         
         # get pokemon types and create the parameter string for the likelihood api call
         pokemon_type_param = ','.join((pokemon_type for pokemon_type in pokemon_types if pokemon_type is not None))
         
-        likelihoodStart = timeit.default_timer()
         # call pokemon likelihood api
         likelihood_response = requests.get(f"http://127.0.0.1:5001/pokemon?type={pokemon_type_param}")
 
-        # calculate the likelihood api running time
-        likelihoodStop = timeit.default_timer()
-        likelihoodTime = likelihoodStop-likelihoodStart
-
-        app.logger.warning('The weather Api took '+str(weatherTime))
-        app.logger.warning('The pokemon Api took '+str(pokemonTime))
-        app.logger.warning('The likelihood Api took '+str(likelihoodTime))
         # render the pokemons page with the likelihood api json response
         return render_template('pokemons.html', pokemon_likelihoods=likelihood_response.json(), weather_main=main, weather_desc=description)
 
