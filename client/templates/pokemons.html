@@ -16,10 +16,12 @@
         <h1>Weather Boosted Pokemons!</h1>
         <!-- Show what the weather is in your location -->
         <p>The weather in your local area is: {{weather_desc}}</p>
-        <img src="{{weather_icon}}" alt="weather_icon" width="50" height="50">
-        <p><button class="button" onclick="sortTable(0)">Sort Alphabetically</button></p>
-        <p><button class="button" onclick="sortTableNumbers(1, 'score')">Sort By Score</button></p>
-        <p><button class="button" onclick="sortTableNumbers(3, 'likelihood')">Sort By Likelihood</button></p>
+        <div>
+            <button class="button" onclick="sortTable(0, 'True')">Sort Alphabetically</button>
+            <button class="button" onclick="sortTableNumbers(1, 'score')">Sort By Score</button>
+            <button class="button" onclick="sortTableNumbers(2, 'False')">Sort By Legendary</button>
+            <button class="button" onclick="sortTableNumbers(3, 'likelihood')">Sort By Likelihood</button>
+        </div>
         <!-- Show the table of pokemons with weather boosts -->
         <table class="table" id="pokemonTable">
             <thead>
@@ -43,7 +45,7 @@
         </table>
     </div>
     <script>
-        function sortTable(column) {
+        function sortTable(column, reverse) {
           var table, rows, switching, i, x, y, shouldSwitch;
           table = document.getElementById("pokemonTable");
           switching = true;
@@ -63,7 +65,13 @@
               x = rows[i].getElementsByTagName("TD")[column];
               y = rows[i + 1].getElementsByTagName("TD")[column];
               //check if the two rows should switch place:
-              if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              if (reverse == 'True') {
+                  compare = x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()
+              }
+              else {
+                  compare = x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()
+              }
+              if (compare) {
                 //if so, mark as a switch and break the loop:
                 shouldSwitch = true;
                 break;
