@@ -66,7 +66,7 @@ def weather_boosted_pokemon():
             else:
                 scale_factor = 2
             
-            pokemon_values["likelihood"] = min(pokemon.likelihood * scale_factor, 1.0)
+            pokemon_values["likelihood"] = int(min(pokemon.likelihood * scale_factor, 1.0)*100)
             boosted_pokemon.append(pokemon_values)
         return jsonify(boosted_pokemon)
     except:
