@@ -12,7 +12,7 @@ def weather_pokemon_types(weather):
     Returns:
     pokemonTypes:A list of the boosted pokemon types
     '''
-    with open('weather-pokemon.csv', 'r') as file:
+    with open('pokemon.csv', 'r') as file:
         reader = csv.reader(file)
         for row in reader:
             if row[1] == weather:
