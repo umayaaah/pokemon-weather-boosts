@@ -15,6 +15,6 @@ def weather_type(main,description):
     with open('weather.csv', 'r') as file:
         reader = csv.reader(file)
         for row in reader:
-            if row[1]==main and row[2] == description:
+            if row[1].lower()==main.lower() and row[2].lower() == description.lower():
                 weatherType = row[3]
                 return(weatherType)
