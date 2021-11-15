@@ -1,7 +1,3 @@
-'''import modules:
-pandas
-numpy
-'''
 import pandas as pd
 import numpy as np
 
@@ -10,7 +6,7 @@ class Pokemon():
     
     Parameters: 
     name(str): the pokemon name
-    score(int): the pokemon's score
+    score(int): the pokemon score
     likelihood(int): the likelihood of the pokemon spawning
     legendary(bool): whether or not the pokemon is a legendary'''
     def __init__(self, name, score, likelihood, legendary):
@@ -20,10 +16,8 @@ class Pokemon():
         self.legendary = legendary
 
 def get_pokemon_dict():
-    '''This function takes the pokemon csv file and turns it into an array of pokemon
-    
-    Parameters:
-    pokemon.csv: the csv file containing the data about the pokemon
+    '''This function takes the pokemon csv file containing the data about the pokemon
+    and turns it into an array of pokemon
     
     Returns:
     pokemon_dict: an array containing all pokemon and information about them'''
