@@ -1,7 +1,3 @@
-'''import:
-    weather_pokemon_types from pokemon_types.py
-    weather_type from weather_type.py
-    Flask,request,jsonify from flask'''
 from pokemon_type import weather_pokemon_types
 from weather_type import weather_type
 from flask import Flask, request, jsonify
