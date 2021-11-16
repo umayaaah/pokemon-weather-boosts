@@ -50,7 +50,7 @@ def weather_boosted_pokemon():
         
         boosted_pokemon_set = set()
         for pokemon_type in pokemon_types:
-            for pokemon in pokemon_dict[pokemon_type]:
+            for pokemon in pokemon_dict[pokemon_type.capitalize()]:
                 boosted_pokemon_set.add(pokemon)
         
         boosted_pokemon = []
