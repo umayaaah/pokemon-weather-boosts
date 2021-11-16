@@ -45,8 +45,17 @@ def index():
         # call pokemon likelihood api
         likelihood_response = requests.get(f"http://127.0.0.1:5001/pokemon?type={pokemon_type_param}")
 
+        pokemon_type_string = ''
+        x = 1
+        for type in pokemon_types:
+            pokemon_type_string += type
+            if x == len(pokemon_types)-1:
+                pokemon_type_string += ' and '
+            elif x < len(pokemon_types):
+                pokemon_type_string += ', '
+            x += 1
         # render the pokemons page with the likelihood api json response
-        return render_template('pokemons.html', pokemon_likelihoods=likelihood_response.json(), weather_main=main, weather_desc=description)
+        return render_template('pokemons.html', pokemon_likelihoods=likelihood_response.json(), weather_main=main, weather_desc=description, pokemon_types=pokemon_type_string)
 
     else:
         # render home page

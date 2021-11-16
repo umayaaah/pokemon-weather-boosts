@@ -16,9 +16,11 @@
         <h1>Weather Boosted Pokemon!</h1>
         <!-- Show what the weather is in your location -->
         <p> The weather in your local area is: <b style = "text-transform:capitalize;" >{{weather_desc}}</b></p>
+        <p> The boosted pokemon types are: <b style = "text-transform:capitalize;" >{{pokemon_types}}</b></p>
+        <p> The table below shows the likelihood of Pokemon of these types spawning in your area</p>
         <div>
             <button class="btn btn-dark" onclick="sortTable(0, 'True')">Sort Alphabetically</button>
-            <button class="btn btn-dark" onclick="sortTableNumbers(1, 'score')">Sort By Score</button>
+            <button class="btn btn-dark" onclick="sortTableNumbers(1, 'score')">Sort By CP</button>
             <button class="btn btn-dark" onclick="sortTable(2, 'False')">Sort By Legendary</button>
             <button class="btn btn-dark" onclick="sortTableNumbers(3, 'likelihood')">Sort By Likelihood</button>
         </div>
@@ -27,7 +29,7 @@
             <thead>
                 <tr>
                   <th scope="col">Name</th>
-                  <th scope="col">Score</th>
+                  <th scope="col">CP</th>
                   <th scope="col">Legendary</th>
                   <th scope="col">Likelihood</th>
                 </tr>
