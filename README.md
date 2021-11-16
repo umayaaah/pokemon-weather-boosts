@@ -14,7 +14,7 @@ All of the APIs must be run using Python3
 ## Run the API
 
     cd ./pokemon-type-api
-    flask run --port 5002 or python3 app.py
+    flask run --port 5002 or python3 app.py -m flask run --port 5002
 
 # Likelihood API
 
@@ -25,7 +25,7 @@ All of the APIs must be run using Python3
 ## Run the API
 
     cd ./likelihood-api
-    flask run --port 5001 or python3 app.py
+    flask run --port 5001 or python3 app.py or python3 -m flask run --port 5001
 
 # Client
 
@@ -36,7 +36,7 @@ All of the APIs must be run using Python3
 ## Run the app
 
     cd ./client
-    flask run --port 5000 or python3 app.py
+    flask run --port 5000 or python3 app.py or python3 -m flask run
 
 Run the webpage on Google Chrome using the URL http://127.0.0.1:5000
 
