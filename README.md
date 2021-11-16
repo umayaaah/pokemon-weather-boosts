@@ -12,7 +12,7 @@ The likelihood API takes the list of pokemon types and returns the boosted pokem
 
 ## Run the API
 
-    cd pokemon-type-api
+    cd ./pokemon-type-api
     flask run --port 5002 or python3 app.py
 
 # Likelihood API
@@ -23,7 +23,7 @@ The likelihood API takes the list of pokemon types and returns the boosted pokem
 
 ## Run the API
 
-    cd likelihood-api
+    cd ./likelihood-api
     flask run --port 5001 or python3 app.py
 
 # Client
@@ -34,7 +34,7 @@ The likelihood API takes the list of pokemon types and returns the boosted pokem
 
 ## Run the app
 
-    cd client
+    cd ./client
     flask run --port 5000 or python3 app.py
 
 Run the webpage on Google Chrome using the URL http://127.0.0.1:5000
@@ -47,7 +47,7 @@ Run the webpage on Google Chrome using the URL http://127.0.0.1:5000
 
 ## Run tests
 
-    cd testing
+    cd ./testing
     python test-likelihood-api.py
     python test-pokemon-type-api.py
     python test-weather-api.py
