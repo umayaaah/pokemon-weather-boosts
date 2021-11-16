@@ -23,6 +23,7 @@ def index():
     A webpage containing a table of all weather boosted pokemon and their stats.
     '''
     if 'lat' in request.args and 'lon' in request.args:
+        #get the users latitude and longitude
         lat = request.args.get('lat')
         lon = request.args.get('lon')
 
@@ -43,6 +44,7 @@ def index():
         # call pokemon likelihood api
         likelihood_response = requests.get(f"http://127.0.0.1:5001/pokemon?type={pokemon_type_param}")
 
+        #turn list of pokemon types into nicely formatted string to display to user
         pokemon_type_string = ''
         x = 1
         for type in pokemon_types:
