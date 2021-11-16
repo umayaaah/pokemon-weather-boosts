@@ -4,11 +4,12 @@ The external openWeather API takes the users latitude and longitude and returns 
 The pokemon API takes the weather and returns a list of pokemon types
 The likelihood API takes the list of pokemon types and returns the boosted pokemon
 
+All of the APIs must be run using Python3 
 # Pokemon API
 
 ## Install requirements
 
-    pip install -r ./pokemon-type-api/requirements.txt
+    pip3 install -r ./pokemon-type-api/requirements.txt
 
 ## Run the API
 
@@ -19,7 +20,7 @@ The likelihood API takes the list of pokemon types and returns the boosted pokem
 
 ## Install requirements
 
-    pip install -r ./likelihood-api/requirements.txt
+    pip3 install -r ./likelihood-api/requirements.txt
 
 ## Run the API
 
@@ -30,7 +31,7 @@ The likelihood API takes the list of pokemon types and returns the boosted pokem
 
 ## Install requirements
 
-    pip install -r ./client/requirements.txt
+    pip3 install -r ./client/requirements.txt
 
 ## Run the app
 
@@ -43,7 +44,7 @@ Run the webpage on Google Chrome using the URL http://127.0.0.1:5000
 
 ## Install requirements
 
-    pip install -r ./tests/requirements.txt
+    pip3 install -r ./tests/requirements.txt
 
 ## Run tests
 
