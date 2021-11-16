@@ -12,15 +12,20 @@ def testLikelihood(pokemon_type_param):
     stop = timeit.default_timer()
     runtime = stop-start
 
+    #return the runtime
     return runtime
 
 def runTest():
     runtimes = []
+    
+    #run the test 5 times
     for x in range (5):
         runtime = testLikelihood('Poison, Grass')
         runtimes.append(runtime)
+        #print results to terminal
         print(f'Test {x+1}: {runtime}')
 
+    #calculate the standard deviation and average and print to terminal
     sd = statistics.stdev(runtimes)
     print(f'Standard Deviation: {sd}')
 

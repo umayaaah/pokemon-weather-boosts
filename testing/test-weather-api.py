@@ -5,16 +5,16 @@ import timeit
 import statistics
 
 def testWeather(lat, lon):
-    # load api key configuration
+    #load api key configuration
     load_dotenv()
     API_KEY = os.getenv("API_KEY")
 
     start = timeit.default_timer()
     
-    # call weather api
+    #call weather api
     requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly,daily,alerts&appid={API_KEY}")
             
-    # calculate weather api running time
+    #calculate weather api running time
     stop = timeit.default_timer()
     runtime = stop-start
 
@@ -22,11 +22,14 @@ def testWeather(lat, lon):
 
 def runTest():
     runtimes = []
+    #run the test 5 times
     for x in range (5):
         runtime = testWeather(53.8336245, -1.7960657)
         runtimes.append(runtime)
+        #print the runtime to client
         print(f'Test {x+1}: {runtime}')
 
+    #calculate the standard deviation and average of the times and print them to terminal
     sd = statistics.stdev(runtimes)
     print(f'Standard Deviation: {sd}')
 
