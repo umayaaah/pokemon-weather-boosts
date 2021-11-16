@@ -35,8 +35,6 @@ def index():
 
         # call pokemon type api
         pokemon_types_response = requests.get(f"http://127.0.0.1:5002/pokemonType?main={main}&description={description}")
-
-
         pokemon_types = pokemon_types_response.json()
         
         # get pokemon types and create the parameter string for the likelihood api call
