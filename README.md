@@ -4,9 +4,7 @@ The external openWeather API takes the users latitude and longitude and returns 
 The pokemon API takes the weather and returns a list of pokemon types
 The likelihood API takes the list of pokemon types and returns the boosted pokemon
 
-All of the APIs must be run using Python3 
-
-Note, the Github repo DOES NOT have this .env file (due to security & privacy restrictions on Github) - we have submitted the code as a zip file on minerva which does contain the     .env file so please use the minerva submission to run the code.
+All of the APIs must be run using Python3
 
 # Pokemon API
 
