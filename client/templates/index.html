@@ -27,6 +27,7 @@
                 }
 
                 function error(err) {
+                    document.getElementById('location-error').innerHTML = "<br>You must allow http://127.0.0.1:5000/ permission to access your location to continue. Please check your browser location settings."
                     console.warn(`ERROR(${err.code}): ${err.message}`);
                 }
                 window.navigator.geolocation.getCurrentPosition(success, error, options)
@@ -41,6 +42,7 @@
         <p>Pokémon GO responds to the real-world weather conditions around you. Weather changes cause certain Pokémon types to appear more frequently.</p>
         <p>Click the button below to see what Pokémon are in the wild for <i>your</i> local weather!</p>
         <button onclick=getLocation()>Get local weather boosted Pokémon</button>
+        <p id="location-error"></p>
     </div>
 </body>
 
