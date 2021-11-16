@@ -3,6 +3,8 @@
 '''
 import csv
 
+from flask.sessions import NullSession
+
 def weather_pokemon_types(weather):
     '''Gets the pokemon types which are boosted in the given weather and returns them as a list
     
@@ -18,4 +20,5 @@ def weather_pokemon_types(weather):
             if row[1] == weather:
                 pokemonTypes=row[2].split(' ')
                 return(pokemonTypes)
+        return(NullSession)
                 

@@ -18,3 +18,4 @@ def weather_type(main,description):
             if row[1].lower()==main.lower() and row[2].lower() == description.lower():
                 weatherType = row[3]
                 return(weatherType)
+        return(NullSession)
