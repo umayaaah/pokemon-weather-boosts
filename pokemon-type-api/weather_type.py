@@ -1,6 +1,3 @@
-'''imports:
-    csv
-'''
 import csv
 
 def weather_type(main,description):
